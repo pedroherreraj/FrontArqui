@@ -1,0 +1,25 @@
+.event-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #473232;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    max-width: 300px;
+    background-color: #e8eddf;
+  }
+  
+  .event-card h2 {
+    margin: 0;
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 10px;
+  }
+  
+  .event-card p {
+    margin: 0;
+    margin-bottom: 5px;
+    color: #666;
+    font-size: 10px;
+  }
