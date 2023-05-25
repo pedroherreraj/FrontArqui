@@ -1,21 +1,16 @@
 import React from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 //import { useUser } from "../context/userContext";
-import { useLocation } from "react-router-dom";
 
-// import styles from './Login.module.scss';
-// import GoogleIcon from 'assets/session/google_icon.svg';
 
 interface CompProps {
   googleSuccess: boolean;
   setGoogleSuccess?: (a: boolean) => void;
   setUserData: (a: any) => void;
+  isSignUp: boolean;
 }
 
-const Login = ({ googleSuccess, setGoogleSuccess, setUserData }: CompProps): React.ReactElement => {
-  const location = useLocation();
-
-  const isSignup : boolean = location.pathname === '/signup';
+const Login = ({ googleSuccess, setGoogleSuccess, setUserData, isSignUp }: CompProps): React.ReactElement => {
   const googleLogin = useGoogleLogin({
     onSuccess: async (response) => {
       setGoogleSuccess && setGoogleSuccess(true);
@@ -26,11 +21,11 @@ const Login = ({ googleSuccess, setGoogleSuccess, setUserData }: CompProps): Rea
   return (
     <div  onClick={() => (googleSuccess ? null : googleLogin())}>
       <div>
-        {isSignup
+        {isSignUp
           ? googleSuccess
             ? 'Connected with Google'
-            : 'Sign up with Google'
-          : 'Log in with Google'}
+            : 'Sign Up'
+          : 'Log In'}
       </div>
       {googleSuccess && <i className="bi bi-check-circle-fill"></i>}
     </div>

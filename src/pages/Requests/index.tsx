@@ -2,19 +2,16 @@ import  React, { useState, useEffect } from "react";
 import { Request } from "../../types"
 import axios from "axios";
 import RequestsIndex from "../../components/Resquests/Requests";
-// import { useUser } from "context/UserContext";
-
-const token = "ya29.a0AWY7Ckkb-zh8daegaSuLTCt740V5bNKwSdoP9KVovbkghQo_BNHrNSndwpTXsrNGWkltdxrFNm2JdDz-UWztrNClUljlFpIcl8PZ_JFDwpppTBP6StfmrXoiO1Jn2Zdrvi53FEjKX3qVX1UrhV26Ge68Fk6e3AaCgYKAdwSARESFQG1tDrpIiJS8okvEq9F5bStt4uT0g0165";
+import { useUser } from "../../context/userContext";
 
 const Requests: React.FC = () => {
 
   const [requests, setRequests] = useState<Request[]>([]);
-//   const { user } = useUser();
+  const { user } = useUser();
 
   const getRequests = async () => {
     await axios.get(`https://api.pdesolmi.me/requests`, {
-    //   headers: { JwtToken: user?.token },
-      headers: { JwtToken: token },
+      headers: { JwtToken: user?.token },
   }).then((response) => {
       setRequests(response.data);
     }).catch((error) => {

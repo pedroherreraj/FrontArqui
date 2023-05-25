@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useUser } from '../context/userContext';
+import { useNavigate } from "react-router-dom";
 
 interface ContactFormProps {
   onSubmit: (phoneNumber: string) => void;
@@ -9,6 +10,7 @@ interface ContactFormProps {
 const ContactForm = ({ onSubmit }: ContactFormProps): JSX.Element => {
   const [phone, setPhone] = useState('');
   const { user, setUser } = useUser();
+  const router = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -17,10 +19,10 @@ const ContactForm = ({ onSubmit }: ContactFormProps): JSX.Element => {
       const response = await axios.post('https://api.pdesolmi.me/users/sign_up', { phone }, {
         headers: { JwtToken: user?.token },
       });
-
       // Update the user object with the new phone number
       const updatedUser = { ...user, phone, token: user?.token || '' };
       setUser(updatedUser);
+      router('/')
     } catch (error) {
       console.error(error);
     }

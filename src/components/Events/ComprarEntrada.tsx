@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Event } from '../../types';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-// import { useUser } from '../../context/UserContext';
+import { useUser } from '../../context/userContext';
 
 interface ComponentProps {
   event: Event;
@@ -13,8 +13,7 @@ export default function Comprar({ event }: ComponentProps)
     const [cantidad, setCantidad] = useState(0);
     const [comprado, setComprado] = useState(false);
     const router = useNavigate();
-//   const { user } = useUser();
-    const token = "ya29.a0AWY7Ckkb-zh8daegaSuLTCt740V5bNKwSdoP9KVovbkghQo_BNHrNSndwpTXsrNGWkltdxrFNm2JdDz-UWztrNClUljlFpIcl8PZ_JFDwpppTBP6StfmrXoiO1Jn2Zdrvi53FEjKX3qVX1UrhV26Ge68Fk6e3AaCgYKAdwSARESFQG1tDrpIiJS8okvEq9F5bStt4uT0g0165";
+    const { user } = useUser();
 
     const aumentar = () => {
         if (cantidad < event.quantity)
@@ -38,8 +37,7 @@ export default function Comprar({ event }: ComponentProps)
         const config = {
             headers: {
             'Content-Type': 'application/json',
-            // JwtToken: user?.token
-            JwtToken: token
+            JwtToken: user?.token
             }
         };
         await axios.post(`https://api.pdesolmi.me/requests`, requestData, config)

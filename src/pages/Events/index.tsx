@@ -3,7 +3,7 @@ import { useMessage } from "../../services/use-message";
 import EventosPaginados from "../../components/Events/EventosPaginados";
 import { Event } from "../../types"
 import axios from "axios";
-// import { useUser } from "context/UserContext";
+import { useUser } from "../../context/userContext";
 
 interface Pagination {
   pages: number;
@@ -17,19 +17,16 @@ const defaultPage: Pagination = {
   total: 0,
 };
 
-const token = "ya29.a0AWY7Ckkb-zh8daegaSuLTCt740V5bNKwSdoP9KVovbkghQo_BNHrNSndwpTXsrNGWkltdxrFNm2JdDz-UWztrNClUljlFpIcl8PZ_JFDwpppTBP6StfmrXoiO1Jn2Zdrvi53FEjKX3qVX1UrhV26Ge68Fk6e3AaCgYKAdwSARESFQG1tDrpIiJS8okvEq9F5bStt4uT0g0165";
-
 const Events: React.FC = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [pagination, setPagination] = useState<Pagination>(defaultPage);
   const [response, setResponse] = useState({} as any);
-  // const { user } = useUser();
+  const { user } = useUser();
 
 
   const getEvents = async () => {
     await axios.get(`https://api.pdesolmi.me/events?page=${pagination.current}`, {
-      // headers: { JwtToken: user?.token },
-      headers: { JwtToken: token },
+      headers: { JwtToken: user?.token },
     }).then((response) => {
       setEvents(response.data.events);
     });
@@ -37,8 +34,7 @@ const Events: React.FC = () => {
   
   const getEventsFirstTime = async () => {
     await axios.get(`https://api.pdesolmi.me/events`, {
-      // headers: { JwtToken: user?.token },
-      headers: { JwtToken: token },
+      headers: { JwtToken: user?.token },
     }).then((response) => {
       setEvents(response.data.events);
       setPagination(response.data.meta);
