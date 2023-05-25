@@ -15,7 +15,7 @@ export const NavBarButtons: React.FC = () => {
           <LogInButton />
           <SignUpButton />
         </>
-       )} 
+       )}
       {user && (
         <>
           <LogOutButton />

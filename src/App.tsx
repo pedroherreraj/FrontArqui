@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Events from './pages/Events';
 import EventDetail from './pages/Events/show';
 import Requests from './pages/Requests';
+import ContactPage from './pages/contact';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App: React.FC = () => {
@@ -16,6 +17,9 @@ const App: React.FC = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/events/:eventId" element={<EventDetail />} />
           <Route path="/requests" element={<Requests />} />
+        </Route>
+        <Route path='/contact' element={<Layout/>}>
+          <Route index element={<ContactPage/>}/>
         </Route>
       </Routes>
     </Router>
