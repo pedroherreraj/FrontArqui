@@ -64,7 +64,7 @@ const Pagination = (props: CompProps): React.ReactElement => {
 
   return (
     <nav aria-label="Page navigation">
-      <ul className={'container'}>
+      <ul className="container">
         <li
           className={`page-item ${current === 1 && 'disabled'}`}
           onClick={() => onPageChanged(current - 1)}

@@ -34,7 +34,6 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
           (<Comprar event={event}/>)
           : null
       }
-      <p> ------ ------ ------ ------</p>
       <br />
     </div>
   );

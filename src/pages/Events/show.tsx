@@ -25,7 +25,9 @@ const EventDetail: React.FC = () => {
 
   if (!event) return <h1> Loading</h1>;
   return (
-    <EventCard event={event}/>
+    <div className="home">
+      <EventCard event={event}/>
+    </div>
   )
 }
 

@@ -1,7 +1,10 @@
 .container {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     text-align: center;
+    margin: 0;
     [class~='page-link'] {
       padding-left: 2px;
       padding-right: 2px;

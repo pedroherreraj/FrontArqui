@@ -13,17 +13,15 @@ export default function Requests({ requests }: ComponentProps)
   }
   return (
     <div>
-      <div>
-        <h4>Requests:</h4>
-        <ul>
-          {requests.map(
-            (request: Request, i: number) => (
-              <div key={i}>
-                <RequestCard request={request} />
-              </div>
-            )
-          )}
-        </ul>
+      <h4>Requests:</h4>
+      <div className="requests-grid">
+        {requests.map(
+          (request: Request, i: number) => (
+            <div key={i}>
+              <RequestCard request={request} />
+            </div>
+          )
+        )}
       </div>
     </div>
   );
