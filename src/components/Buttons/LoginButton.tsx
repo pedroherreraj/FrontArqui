@@ -5,10 +5,10 @@ import axios from 'axios';
 import GoogleLogin from '../logWithGoogle';
 import './Button.css'
 
-interface LoginInfo {
-  email: string;
-  password: string;
-}
+// interface LoginInfo {
+//   email: string;
+//   password: string;
+// }
 
 const LoginInButton = (): React.ReactElement => {
   const { setUser } = useUser();

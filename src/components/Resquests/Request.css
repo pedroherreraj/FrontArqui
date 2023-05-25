@@ -1,4 +1,4 @@
-.event-card {
+.request-card {
     display: flex;
     flex-direction: column;
     border: 1px solid #473232;
@@ -11,16 +11,24 @@
     background-color: #e8eddf;
   }
   
-  .event-card h2 {
+  .request-card h2 {
     margin: 0;
     margin-bottom: 12px;
     color: #333;
     font-size: 10px;
   }
   
-  .event-card p {
+  .request-card p {
     margin: 0;
     margin-bottom: 5px;
     color: #666;
     font-size: 10px;
+  }
+
+  .requests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 50px;
   }

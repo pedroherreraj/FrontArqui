@@ -1,6 +1,5 @@
-import React from "react";
-import { useState, useEffect } from 'react';
 import { Request } from "../../types";
+import "./Request.css";
 
 interface ComponentProps {
   request: Request;
@@ -17,16 +16,13 @@ const handleStatus = (status: string) => {
   }
 }
 
-
 export default function RequestCard({ request }: ComponentProps)
 {
   return (
-    <li>
-      <h1 style={{color: "red"}}>{request.event?.name}</h1>
-      <div>
-        <p>Cantidad: {request.quantity}</p>
-        <p>Estado: {handleStatus(request.status)}</p>
-      </div>
-    </li>
+    <div className="request-card">
+      <h2>{request.event?.name}</h2>
+      <p>Cantidad: {request.quantity}</p>
+      <p>Estado: {handleStatus(request.status)}</p>
+    </div>
   );
 }

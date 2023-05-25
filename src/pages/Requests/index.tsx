@@ -26,13 +26,8 @@ const Requests: React.FC = () => {
   }, []);
 
   return (
-    <div className="content-layout">
-      <h1 id="page-title" className="content__title">
-        Requests
-      </h1>
-      <div className="content__body">
-        <RequestsIndex requests={requests} />
-      </div>
+    <div className="request-layout">
+      <RequestsIndex requests={requests} />
     </div>
   );
 };

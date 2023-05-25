@@ -1,5 +1,4 @@
 import  React, { useState, useEffect } from "react";
-import { useMessage } from "../../services/use-message";
 import EventosPaginados from "../../components/Events/EventosPaginados";
 import { Event } from "../../types"
 import axios from "axios";
@@ -20,7 +19,7 @@ const defaultPage: Pagination = {
 const Events: React.FC = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [pagination, setPagination] = useState<Pagination>(defaultPage);
-  const [response, setResponse] = useState({} as any);
+  const [response] = useState({} as any);
   const { user } = useUser();
 
 
@@ -50,19 +49,16 @@ const Events: React.FC = () => {
     getEventsFirstTime();
   }, []);
 
-  useEffect(() => {
-    if (response) setPagination(response);
-  }, [events]);
+  // useEffect(() => {
+  //   if (response) setPagination(response);
+  // }, [events]);
 
   useEffect(() => {
     getEvents();
   }, [pagination]);
 
   return (
-    <div className="content-layout">
-      <h1 id="page-title" className="content__title">
-        Eventos
-      </h1>
+    <div className="request-layout">
       <div className="content__body">
         <EventosPaginados events={events} pagination={{ ...pagination, onChange: changePageEvents }} />
       </div>
