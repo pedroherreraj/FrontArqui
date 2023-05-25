@@ -24,7 +24,7 @@ export default function Comprar({ event }: ComponentProps)
         if (cantidad > 0)
         setCantidad(cantidad - 1);
     }
-  
+
     const comprar = async () => {
         if (cantidad > 0)
         {
@@ -34,7 +34,7 @@ export default function Comprar({ event }: ComponentProps)
             quantity: cantidad,
             event_id: event.event_id
         };
-        
+
         const config = {
             headers: {
             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export default function Comprar({ event }: ComponentProps)
             JwtToken: token
             }
         };
-        await axios.post(`https://api.pdesolmi.me/requests`, requestData, config)
+        response = await axios.post(`https://api.pdesolmi.me/requests`, requestData, config)
         .then((response) => {
             console.log(response);
         });
