@@ -21,7 +21,6 @@ const Login = (): React.ReactElement => {
 
 
   useEffect(() => {
-    console.log(userData);
   }, [userData]);
 
   useEffect(() => {
@@ -38,7 +37,6 @@ const Login = (): React.ReactElement => {
           const response = await axios.post('https://api.pdesolmi.me/users/login', {phone: 123}, {
             headers: { JwtToken: userData['token'] },
           });
-          console.log(response.data);
 
         } catch (error) {
           console.error(error);

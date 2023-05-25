@@ -17,7 +17,6 @@ const ContactForm = ({ onSubmit }: ContactFormProps): JSX.Element => {
       const response = await axios.post('https://api.pdesolmi.me/users/sign_up', { phone }, {
         headers: { JwtToken: user?.token },
       });
-      console.log(response.data);
 
       // Update the user object with the new phone number
       const updatedUser = { ...user, phone, token: user?.token || '' };

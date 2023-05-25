@@ -21,8 +21,7 @@ const Login = (): React.ReactElement => {
 
 
   useEffect(() => {
-    console.log('user data');
-    console.log(userData);
+
   }, [userData]);
 
   useEffect(() => {

@@ -20,7 +20,6 @@ const Login = ({ googleSuccess, setGoogleSuccess, setUserData }: CompProps): Rea
     onSuccess: async (response) => {
       setGoogleSuccess && setGoogleSuccess(true);
       setUserData && setUserData({ provider: 'google_oauth2', token: response.access_token });
-      console.log('hullo' + response.access_token);
     },
   });
 

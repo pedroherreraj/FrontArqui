@@ -18,7 +18,6 @@ export const NavBarButtons: React.FC = () => {
        )}
       {user && (
         <>
-          <p>Hola estoy logeado y me llamo</p>
           <LogOutButton />
         </>
       )}
