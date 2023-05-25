@@ -9,7 +9,7 @@ export const NavBarTabs: React.FC = () => {
         <Link to="/events">
             <span className="nav-bar__tabs-text">Eventos</span>
         </Link>
-        <Link to="/solicitudes">
+        <Link to="/requests">
             <span className="nav-bar__tabs-text">Solicitudes</span>
         </Link>
     </div>

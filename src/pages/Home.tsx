@@ -1,7 +1,8 @@
 import React from "react";
-import Eventcard from "../components/Events/Event";
+import Eventcard from "../components/Events/EventCard";
 import events from "../data/events";
 import "./Home.css";
+import { Event } from "../types";
 
 const Home: React.FC = () => {
     return (
