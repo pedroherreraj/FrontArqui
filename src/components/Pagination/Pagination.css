@@ -1,0 +1,11 @@
+.container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    [class~='page-link'] {
+      padding-left: 2px;
+      padding-right: 2px;
+      min-width: 36px;
+      cursor: pointer;
+    }
+  }
